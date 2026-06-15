@@ -1,5 +1,5 @@
-import { Stack } from "expo-router";
+import ViewImageScreen from "./screens/ViewImageScreen";
 
 export default function RootLayout() {
-  return <Stack />;
+  return <ViewImageScreen />;
 }
