@@ -1,25 +1,14 @@
-import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Image, StatusBar, StyleSheet, View } from "react-native";
 
 const ViewImageScreen = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../../../assets/background.jpg")}
+        source={require("../../../assets/chair.jpg")}
         style={styles.image}
       />
-      <View style={styles.innerView}>
-        <View>
-          <Image
-            source={require("../../../assets/logo-red.png")}
-            style={styles.logo}
-          />
-          <Text style={styles.text}>Sell What You Don't Need</Text>
-        </View>
-        <View>
-          <View style={styles.button1View}></View>
-          <View style={styles.button2View}></View>
-        </View>
-      </View>
+      <View style={styles.leftButtonView}></View>
+      <View style={styles.rightButtonView}></View>
     </View>
   );
 };
@@ -27,34 +16,30 @@ const ViewImageScreen = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: StatusBar.currentHeight,
-  },
-  image: { width: "100%", height: "100%" },
-  innerView: {
-    position: "absolute",
-    marginTop: StatusBar.currentHeight,
+    backgroundColor: "black",
     height: "100%",
+    justifyContent: "center",
+  },
+  image: {
     width: "100%",
-    justifyContent: "space-between",
+    height: "65%",
   },
-  logo: {
-    height: 100,
-    width: 100,
-    alignSelf: "center",
-    marginTop: 70,
-  },
-  text: {
-    color: "black",
-    fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 20,
-  },
-  button1View: {
-    height: 60,
+  leftButtonView: {
+    marginTop: StatusBar.currentHeight,
+    position: "absolute",
+    top: 20,
+    left: 20,
+    height: 50,
+    width: 50,
     backgroundColor: "#fc5c65",
   },
-  button2View: {
-    height: 60,
+  rightButtonView: {
+    marginTop: StatusBar.currentHeight,
+    position: "absolute",
+    top: 20,
+    right: 20,
+    height: 50,
+    width: 50,
     backgroundColor: "#4ecdc4",
   },
 });

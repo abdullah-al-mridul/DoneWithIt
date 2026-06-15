@@ -1,5 +1,5 @@
-import WelcomeScreen from "./screens/WelcomeScreen";
+import ViewImageScreen from "./screens/ViewImageScreen";
 
 export default function RootLayout() {
-  return <WelcomeScreen />;
+  return <ViewImageScreen />;
 }
