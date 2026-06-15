@@ -1,30 +1,14 @@
-import { Image, StyleSheet, TouchableNativeFeedback, View } from "react-native";
+import { Button, SafeAreaView, StyleSheet } from "react-native";
 
 export default function Index() {
   return (
-    <View style={styles.container}>
-      <TouchableNativeFeedback
-        onPress={() => {
-          console.log("image tapped");
-        }}
-      >
-        <View
-          style={{
-            width: 200,
-            height: 300,
-            backgroundColor: "red",
-          }}
-        >
-          <Image
-            source={{
-              height: 200,
-              width: 300,
-              uri: "https://picsum.photos/200/300.jpg",
-            }}
-          />
-        </View>
-      </TouchableNativeFeedback>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Button
+        color={"orange"}
+        title="Press me"
+        onPress={() => console.log("Button pressed")}
+      />
+    </SafeAreaView>
   );
 }
 
