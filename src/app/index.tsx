@@ -1,4 +1,4 @@
-import { Button, SafeAreaView, StyleSheet } from "react-native";
+import { Alert, Button, SafeAreaView, StyleSheet } from "react-native";
 
 export default function Index() {
   return (
@@ -6,7 +6,11 @@ export default function Index() {
       <Button
         color={"orange"}
         title="Press me"
-        onPress={() => console.log("Button pressed")}
+        onPress={() =>
+          Alert.alert("Button Pressed!", "You have pressed the button.", [
+            { text: "OK", onPress: () => console.log("OK Pressed") },
+          ])
+        }
       />
     </SafeAreaView>
   );
