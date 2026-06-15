@@ -14,8 +14,7 @@ export default function Index() {
       <View
         style={{
           backgroundColor: "dodgerblue",
-          width: 400,
-          flexShrink: 1,
+          width: 100,
           height: 100,
         }}
       />
@@ -24,6 +23,9 @@ export default function Index() {
           backgroundColor: "gold",
           width: 100,
           height: 100,
+          position: "absolute",
+          top: 50,
+          left: 50,
         }}
       />
       <View
