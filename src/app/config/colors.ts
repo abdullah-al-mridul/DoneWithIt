@@ -3,6 +3,7 @@ const colors: Colors = {
   secondary: "#4ecdc4",
   black: "#000",
   white: "#fff",
+  medium: "#6e6969",
 };
 
 interface Colors {
@@ -10,6 +11,7 @@ interface Colors {
   secondary: string;
   black: string;
   white: string;
+  medium: string;
 }
 
 export type { Colors };
