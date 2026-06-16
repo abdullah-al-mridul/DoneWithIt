@@ -1,9 +1,11 @@
 import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
+import AppButton from "../components/AppButton";
 
 const WelcomeScreen = () => {
   return (
     <View style={styles.container}>
       <Image
+        blurRadius={10}
         source={require("../../../assets/background.jpg")}
         style={styles.image}
       />
@@ -15,9 +17,9 @@ const WelcomeScreen = () => {
           />
           <Text style={styles.text}>Sell What You Don't Need</Text>
         </View>
-        <View>
-          <View style={styles.button1View}></View>
-          <View style={styles.button2View}></View>
+        <View style={styles.buttonContainer}>
+          <AppButton title="Login" />
+          <AppButton title="Register" color="secondary" />
         </View>
       </View>
     </View>
@@ -27,6 +29,7 @@ const WelcomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: StatusBar.currentHeight,
+    height: "100%",
   },
   image: { width: "100%", height: "100%" },
   innerView: {
@@ -49,13 +52,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
-  button1View: {
-    height: 60,
-    backgroundColor: "#fc5c65",
-  },
-  button2View: {
-    height: 60,
-    backgroundColor: "#4ecdc4",
+  buttonContainer: {
+    padding: 20,
   },
 });
 

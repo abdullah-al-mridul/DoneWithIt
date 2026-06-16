@@ -1,11 +1,21 @@
 import { View } from "react-native";
-
-import AppText from "./components/AppText";
+import Card from "./components/Card";
 
 const App = () => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppText>I love React Native!</AppText>
+    <View
+      style={{
+        backgroundColor: "#f8f4f4",
+        padding: 20,
+        paddingTop: 100,
+        height: "100%",
+      }}
+    >
+      <Card
+        title="Red jacket for sale"
+        subTitle="$100"
+        image={require("../../assets/jacket.jpg")}
+      />
     </View>
   );
 };
