@@ -1,10 +1,11 @@
 import { View } from "react-native";
-import AppText from "./components/AppText";
+
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const App = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppText>I love react native!</AppText>
+      <MaterialCommunityIcons name="email" size={200} color="dodgerblue" />
     </View>
   );
 };
