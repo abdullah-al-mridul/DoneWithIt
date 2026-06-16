@@ -1,5 +1,5 @@
-import ViewImageScreen from "./screens/ViewImageScreen";
+import App from "./App";
 
 export default function RootLayout() {
-  return <ViewImageScreen />;
+  return <App />;
 }
