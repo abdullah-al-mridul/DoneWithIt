@@ -1,5 +1,7 @@
 import { Image, StatusBar, StyleSheet, View } from "react-native";
 
+import colors from "../config/colors";
+
 const ViewImageScreen = () => {
   return (
     <View style={styles.container}>
@@ -16,7 +18,7 @@ const ViewImageScreen = () => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: StatusBar.currentHeight,
-    backgroundColor: "black",
+    backgroundColor: colors.black,
     height: "100%",
     justifyContent: "center",
   },
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
     left: 20,
     height: 50,
     width: 50,
-    backgroundColor: "#fc5c65",
+    backgroundColor: colors.primary,
   },
   rightButtonView: {
     marginTop: StatusBar.currentHeight,
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
     right: 20,
     height: 50,
     width: 50,
-    backgroundColor: "#4ecdc4",
+    backgroundColor: colors.secondary,
   },
 });
 
