@@ -1,7 +1,7 @@
-import ViewImageScreen from "./screens/ViewImageScreen";
+import MessagesScreen from "./screens/MessagesScreen";
 
 const App = () => {
-  return <ViewImageScreen />;
+  return <MessagesScreen />;
 };
 
 export default App;
