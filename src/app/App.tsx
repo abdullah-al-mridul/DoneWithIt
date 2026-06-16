@@ -1,7 +1,7 @@
-import ListingDetailsScreen from "./screens/ListingDetailsScreen";
+import ViewImageScreen from "./screens/ViewImageScreen";
 
 const App = () => {
-  return <ListingDetailsScreen />;
+  return <ViewImageScreen />;
 };
 
 export default App;
