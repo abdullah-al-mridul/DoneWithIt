@@ -4,6 +4,7 @@ const colors: Colors = {
   black: "#000",
   white: "#fff",
   medium: "#6e6969",
+  light: "#f8f4f4",
 };
 
 interface Colors {
@@ -12,6 +13,7 @@ interface Colors {
   black: string;
   white: string;
   medium: string;
+  light: string;
 }
 
 export type { Colors };

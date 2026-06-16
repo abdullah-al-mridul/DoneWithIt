@@ -24,6 +24,7 @@ const ListItem = ({ title, subTitle, image }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    padding: 15,
   },
   image: {
     width: 70,
