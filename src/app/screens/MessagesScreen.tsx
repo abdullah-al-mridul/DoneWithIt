@@ -6,7 +6,7 @@ import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import ListItemSeparetor from "../components/ListItemSeparetor";
 import Screen from "../components/Screen";
 
-const initialConfigs = [
+const initialMessages = [
   {
     id: 1,
     title: "T1",
@@ -22,7 +22,8 @@ const initialConfigs = [
 ];
 
 const MessagesScreen = () => {
-  const [messages, setMessages] = useState(initialConfigs);
+  const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = (message: any) => {
     // delete message from backend later
@@ -47,6 +48,8 @@ const MessagesScreen = () => {
           />
         )}
         ItemSeparatorComponent={<ListItemSeparetor />}
+        refreshing={refreshing}
+        onRefresh={() => setMessages([initialMessages[1]])}
       />
     </Screen>
   );
