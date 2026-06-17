@@ -5,6 +5,7 @@ const colors: Colors = {
   white: "#fff",
   medium: "#6e6969",
   light: "#f8f4f4",
+  danger: "#ff5252",
 };
 
 interface Colors {
@@ -14,6 +15,7 @@ interface Colors {
   white: string;
   medium: string;
   light: string;
+  danger: string;
 }
 
 export type { Colors };

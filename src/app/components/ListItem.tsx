@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import {
   Image,
   ImageSourcePropType,
@@ -5,6 +6,7 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
+import ReanimatedSwipeable from "react-native-gesture-handler/ReanimatedSwipeable";
 
 import colors from "../config/colors";
 import AppText from "./AppText";
@@ -14,19 +16,28 @@ interface Props {
   subTitle: string;
   image: ImageSourcePropType;
   onPress?: () => void;
+  renderRightActions?: () => ReactNode;
 }
 
-const ListItem = ({ title, subTitle, image, onPress }: Props) => {
+const ListItem = ({
+  title,
+  subTitle,
+  image,
+  onPress,
+  renderRightActions,
+}: Props) => {
   return (
-    <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
-      <View style={styles.container}>
-        <Image source={image} style={styles.image} />
-        <View>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.subTitle}>{subTitle}</AppText>
+    <ReanimatedSwipeable renderRightActions={renderRightActions}>
+      <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+        <View style={styles.container}>
+          <Image source={image} style={styles.image} />
+          <View>
+            <AppText style={styles.title}>{title}</AppText>
+            <AppText style={styles.subTitle}>{subTitle}</AppText>
+          </View>
         </View>
-      </View>
-    </TouchableHighlight>
+      </TouchableHighlight>
+    </ReanimatedSwipeable>
   );
 };
 
