@@ -1,7 +1,7 @@
-import AccountScreen from "./screens/AccountScreen";
+import ListingScreen from "./screens/ListingScreen";
 
 const App = () => {
-  return <AccountScreen />;
+  return <ListingScreen />;
 };
 
 export default App;
