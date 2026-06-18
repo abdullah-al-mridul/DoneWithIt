@@ -1,7 +1,12 @@
-import MessagesScreen from "./screens/MessagesScreen";
+import Icon from "./components/Icon";
+import Screen from "./components/Screen";
 
 const App = () => {
-  return <MessagesScreen />;
+  return (
+    <Screen>
+      <Icon name="email" />
+    </Screen>
+  );
 };
 
 export default App;
