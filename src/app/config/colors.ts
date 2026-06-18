@@ -1,4 +1,4 @@
-const colors: Colors = {
+const colors = {
   primary: "#fc5c65",
   secondary: "#4ecdc4",
   black: "#000",
@@ -6,17 +6,10 @@ const colors: Colors = {
   medium: "#6e6969",
   light: "#f8f4f4",
   danger: "#ff5252",
-};
+  dark: "#0c0c0c",
+} as const;
 
-interface Colors {
-  primary: string;
-  secondary: string;
-  black: string;
-  white: string;
-  medium: string;
-  light: string;
-  danger: string;
-}
+type Colors = typeof colors;
 
 export type { Colors };
 export default colors;
