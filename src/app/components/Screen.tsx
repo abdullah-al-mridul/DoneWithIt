@@ -1,10 +1,18 @@
 import { ReactNode } from "react";
-import { Platform, StatusBar, StyleSheet } from "react-native";
+import { Platform, StatusBar, StyleSheet, ViewStyle } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-const Screen = ({ children }: { children: ReactNode }) => {
+const Screen = ({
+  children,
+  stylesExtend,
+}: {
+  children: ReactNode;
+  stylesExtend?: ViewStyle;
+}) => {
   return (
-    <SafeAreaProvider style={styles.container}>{children}</SafeAreaProvider>
+    <SafeAreaProvider style={[styles.container, stylesExtend]}>
+      {children}
+    </SafeAreaProvider>
   );
 };
 

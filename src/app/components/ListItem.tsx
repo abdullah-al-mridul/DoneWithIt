@@ -14,11 +14,11 @@ import AppText from "./AppText";
 
 interface Props {
   title: string;
-  subTitle: string;
+  subTitle?: string;
   image?: ImageSourcePropType;
   onPress?: () => void;
   renderRightActions?: () => ReactNode;
-  ImageComponent?: ReactNode;
+  IconComponent?: ReactNode;
 }
 
 const ListItem = ({
@@ -27,7 +27,7 @@ const ListItem = ({
   image,
   onPress,
   renderRightActions,
-  ImageComponent,
+  IconComponent: ImageComponent,
 }: Props) => {
   return (
     <GestureHandlerRootView>
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     padding: 15,
+    backgroundColor: colors.white,
   },
   stylesDetailsContainer: {
     marginLeft: 10,
