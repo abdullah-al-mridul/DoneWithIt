@@ -14,15 +14,25 @@ import defaultStyles from "../config/styles";
 import AppText from "./AppText";
 import PickerItem from "./PickerItem";
 
+type ItemType = {
+  label: string;
+  value: number;
+};
+
 interface AppTextInputType extends TextInputProps {
   icon?: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
-  items: {
-    label: string;
-    value: number;
-  }[];
+  items: ItemType[];
+  onSelectItem: (item: ItemType) => void;
+  selectedItem: ItemType;
 }
 
-const AppPicker = ({ icon, items, placeholder }: AppTextInputType) => {
+const AppPicker = ({
+  icon,
+  items,
+  placeholder,
+  onSelectItem,
+  selectedItem,
+}: AppTextInputType) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
@@ -37,7 +47,9 @@ const AppPicker = ({ icon, items, placeholder }: AppTextInputType) => {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{placeholder} </AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}{" "}
+          </AppText>
           <MaterialCommunityIcons
             name="chevron-down"
             size={20}
@@ -52,7 +64,13 @@ const AppPicker = ({ icon, items, placeholder }: AppTextInputType) => {
           data={items}
           keyExtractor={(item) => item.value.toString()}
           renderItem={({ item }) => (
-            <PickerItem label={item.label} onPress={() => console.log(item)} />
+            <PickerItem
+              label={item.label}
+              onPress={() => {
+                setModalVisible(false);
+                onSelectItem(item);
+              }}
+            />
           )}
         />
         {/* </Screen> */}
