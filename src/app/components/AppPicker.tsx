@@ -2,6 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import {
   Button,
+  FlatList,
   Modal,
   Pressable,
   StyleSheet,
@@ -11,13 +12,17 @@ import {
 
 import defaultStyles from "../config/styles";
 import AppText from "./AppText";
-import Screen from "./Screen";
+import PickerItem from "./PickerItem";
 
 interface AppTextInputType extends TextInputProps {
   icon?: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
+  items: {
+    label: string;
+    value: number;
+  }[];
 }
 
-const AppPicker = ({ icon, placeholder }: AppTextInputType) => {
+const AppPicker = ({ icon, items, placeholder }: AppTextInputType) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
@@ -41,9 +46,16 @@ const AppPicker = ({ icon, placeholder }: AppTextInputType) => {
         </View>
       </Pressable>
       <Modal visible={modalVisible} animationType="slide">
-        <Screen>
-          <Button title="close" onPress={() => setModalVisible(false)} />
-        </Screen>
+        {/* <Screen> */}
+        <Button title="close" onPress={() => setModalVisible(false)} />
+        <FlatList
+          data={items}
+          keyExtractor={(item) => item.value.toString()}
+          renderItem={({ item }) => (
+            <PickerItem label={item.label} onPress={() => console.log(item)} />
+          )}
+        />
+        {/* </Screen> */}
       </Modal>
     </>
   );
