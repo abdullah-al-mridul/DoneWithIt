@@ -1,8 +1,14 @@
 import { StyleSheet } from "react-native";
 import AppText from "../components/AppText";
 
-const ErrorMessage = ({ error }: { error?: string }) => {
-  if (!error) return null;
+const ErrorMessage = ({
+  error,
+  visible,
+}: {
+  error?: string;
+  visible?: boolean;
+}) => {
+  if (!error || !visible) return null;
   return <AppText style={styles.error}>{error}</AppText>;
 };
 
