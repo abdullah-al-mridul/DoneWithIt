@@ -3,8 +3,8 @@ import { useFormikContext } from "formik";
 import { ComponentProps } from "react";
 import { TextInputProps } from "react-native";
 
-import ErrorMessage from "../screens/ErrorMessage";
-import AppTextInput from "./AppTextInput";
+import AppTextInput from "../AppTextInput";
+import ErrorMessage from "./ErrorMessage";
 
 interface FormValues {
   email: string;
