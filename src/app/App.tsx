@@ -1,7 +1,7 @@
-import ListingEditScreen from "./screens/ListingEditScreen";
+import MessagesScreen from "./screens/MessagesScreen";
 
 const App = () => {
-  return <ListingEditScreen />;
+  return <MessagesScreen />;
 };
 
 export default App;
