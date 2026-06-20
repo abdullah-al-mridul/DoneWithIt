@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 import Screen from "../components/Screen";
-import { AppForm, AppFormField } from "../components/forms";
+import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import AppFormPicker from "../components/forms/AppFormPicker";
 
 const validationSchema = Yup.object().shape({
@@ -50,10 +50,10 @@ const ListingEditScreen = () => {
           multiline
           numberOfLines={3}
         />
+        <SubmitButton title="Post" />
       </AppForm>
     </Screen>
   );
 };
 
 export default ListingEditScreen;
-export type ListingValidatationSchema = typeof validationSchema;
