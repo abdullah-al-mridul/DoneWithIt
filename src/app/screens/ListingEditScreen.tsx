@@ -1,3 +1,4 @@
+import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 import Screen from "../components/Screen";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
@@ -25,7 +26,7 @@ const initialValues = {
 
 const ListingEditScreen = () => {
   return (
-    <Screen>
+    <Screen stylesExtend={styles.container}>
       <AppForm
         initialValues={initialValues}
         onSubmit={(values) => console.log(values)}
@@ -55,5 +56,11 @@ const ListingEditScreen = () => {
     </Screen>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 10,
+  },
+});
 
 export default ListingEditScreen;
