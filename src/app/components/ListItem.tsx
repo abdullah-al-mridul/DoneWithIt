@@ -38,9 +38,13 @@ const ListItem = ({
             {ImageComponent}
             {image && <Image source={image} style={styles.image} />}
             <View style={styles.stylesDetailsContainer}>
-              <AppText style={styles.title}>{title}</AppText>
+              <AppText numberOfLines={1} style={styles.title}>
+                {title}
+              </AppText>
               {subTitle && (
-                <AppText style={styles.subTitle}>{subTitle}</AppText>
+                <AppText numberOfLines={1} style={styles.subTitle}>
+                  {subTitle}
+                </AppText>
               )}
             </View>
             <MaterialCommunityIcons
