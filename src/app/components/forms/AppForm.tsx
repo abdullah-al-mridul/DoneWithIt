@@ -2,27 +2,19 @@ import { Formik } from "formik";
 import { ReactNode } from "react";
 import * as Yup from "yup";
 
-type InitialValus = {
-  email: "";
-  password: "";
-};
-
-interface Props {
-  initialValues: InitialValus;
-  onSubmit: (values: InitialValus) => void;
-  validationSchema: Yup.ObjectSchema<{
-    email: string;
-    password: string;
-  }>;
+interface Props<T extends Record<string, any>> {
+  initialValues: T;
+  onSubmit: (values: T) => void;
+  validationSchema: Yup.ObjectSchema<any>;
   children: ReactNode;
 }
 
-const AppForm = ({
+const AppForm = <T extends Record<string, any>>({
   initialValues,
   onSubmit,
   validationSchema,
   children,
-}: Props) => {
+}: Props<T>) => {
   return (
     <Formik
       initialValues={initialValues}

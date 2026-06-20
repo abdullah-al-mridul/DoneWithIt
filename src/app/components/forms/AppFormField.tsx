@@ -6,27 +6,28 @@ import { TextInputProps } from "react-native";
 import AppTextInput from "../AppTextInput";
 import ErrorMessage from "./ErrorMessage";
 
-interface FormValues {
-  email: string;
-  password: string;
-}
-
-interface Props extends TextInputProps {
-  name: keyof FormValues;
+interface Props<T extends Record<string, any>> extends TextInputProps {
+  name: keyof T;
   icon?: ComponentProps<typeof MaterialCommunityIcons>["name"];
 }
 
-const AppFormField = ({ name, ...otherProps }: Props) => {
+const AppFormField = <T extends Record<string, any>>({
+  name,
+  ...otherProps
+}: Props<T>) => {
   const { setFieldTouched, handleChange, errors, touched } =
-    useFormikContext<FormValues>();
+    useFormikContext<T>();
   return (
     <>
       <AppTextInput
-        onChangeText={handleChange(name)}
-        onBlur={() => setFieldTouched(name)}
+        onChangeText={handleChange(name as string)}
+        onBlur={() => setFieldTouched(name as string)}
         {...otherProps}
       />
-      <ErrorMessage visible={touched[name]} error={errors[name]} />
+      <ErrorMessage
+        visible={touched[name] as boolean | undefined}
+        error={errors[name] as string | undefined}
+      />
     </>
   );
 };

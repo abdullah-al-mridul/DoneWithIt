@@ -1,0 +1,59 @@
+import * as Yup from "yup";
+import Screen from "../components/Screen";
+import { AppForm, AppFormField } from "../components/forms";
+import AppFormPicker from "../components/forms/AppFormPicker";
+
+const validationSchema = Yup.object().shape({
+  title: Yup.string().required().min(1).label("Title"),
+  price: Yup.number().required().min(1).max(10000).label("Price"),
+  description: Yup.string().label("Description"),
+  category: Yup.object().required().nullable().label("Category"),
+});
+
+const categories = [
+  { label: "Furniture", value: 1 },
+  { label: "Clothing", value: 2 },
+  { label: "Camera", value: 3 },
+];
+
+const initialValues = {
+  title: "",
+  price: 0,
+  description: "",
+  category: null,
+};
+
+const ListingEditScreen = () => {
+  return (
+    <Screen>
+      <AppForm
+        initialValues={initialValues}
+        onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
+      >
+        <AppFormField maxLength={255} name="title" placeholder="Title" />
+        <AppFormField
+          maxLength={8}
+          name="price"
+          placeholder="Price"
+          keyboardType="numeric"
+        />
+        <AppFormPicker
+          items={categories}
+          name={"category"}
+          placeholder={"Category"}
+        />
+        <AppFormField
+          maxLength={255}
+          name="description"
+          placeholder="Description"
+          multiline
+          numberOfLines={3}
+        />
+      </AppForm>
+    </Screen>
+  );
+};
+
+export default ListingEditScreen;
+export type ListingValidatationSchema = typeof validationSchema;
