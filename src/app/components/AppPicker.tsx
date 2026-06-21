@@ -23,6 +23,7 @@ type ItemType = {
 interface PickerItemProps {
   label: string;
   onPress?: () => void;
+  item?: any;
 }
 
 interface AppPickerProps extends TextInputProps {
@@ -33,6 +34,7 @@ interface AppPickerProps extends TextInputProps {
   placeholder?: string;
   width?: DimensionValue;
   PickerItemComponent?: ComponentType<PickerItemProps>;
+  numberOfColumns?: number;
 }
 
 const AppPicker = ({
@@ -43,6 +45,7 @@ const AppPicker = ({
   selectedItem,
   width = "100%",
   PickerItemComponent = PickerItem,
+  numberOfColumns = 1,
 }: AppPickerProps) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -76,6 +79,7 @@ const AppPicker = ({
         <FlatList
           data={items}
           keyExtractor={(item) => item.value.toString()}
+          numColumns={numberOfColumns}
           renderItem={({ item }) => (
             <PickerItemComponent
               label={item.label}
@@ -83,6 +87,7 @@ const AppPicker = ({
                 setModalVisible(false);
                 onSelectItem(item);
               }}
+              item={item}
             />
           )}
         />

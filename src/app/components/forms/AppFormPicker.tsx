@@ -20,6 +20,7 @@ interface Props<T extends Record<string, any>> {
   placeholder?: string;
   width?: DimensionValue;
   PickerItemComponent?: ComponentType<PickerItemProps>;
+  numberOfColumns?: number;
 }
 
 const AppFormPicker = <T extends Record<string, any>>({
@@ -28,6 +29,7 @@ const AppFormPicker = <T extends Record<string, any>>({
   placeholder,
   width,
   PickerItemComponent,
+  numberOfColumns,
 }: Props<T>) => {
   const { values, setFieldValue, touched, errors } = useFormikContext<T>();
   return (
@@ -39,6 +41,7 @@ const AppFormPicker = <T extends Record<string, any>>({
         selectedItem={values[name]}
         width={width}
         PickerItemComponent={PickerItemComponent}
+        numberOfColumns={numberOfColumns}
       />
       <ErrorMessage
         error={errors[name] as string | undefined}
