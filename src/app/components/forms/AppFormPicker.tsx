@@ -1,4 +1,5 @@
 import { useFormikContext } from "formik";
+import { DimensionValue } from "react-native";
 import AppPicker from "../AppPicker";
 import ErrorMessage from "./ErrorMessage";
 
@@ -11,12 +12,14 @@ interface Props<T extends Record<string, any>> {
   items: PickerItem[];
   name: keyof T;
   placeholder?: string;
+  width?: DimensionValue;
 }
 
 const AppFormPicker = <T extends Record<string, any>>({
   items,
   name,
   placeholder,
+  width,
 }: Props<T>) => {
   const { values, setFieldValue, touched, errors } = useFormikContext<T>();
   return (
@@ -26,6 +29,7 @@ const AppFormPicker = <T extends Record<string, any>>({
         onSelectItem={(item) => setFieldValue(name as string, item)}
         placeholder={placeholder}
         selectedItem={values[name]}
+        width={width}
       />
       <ErrorMessage
         error={errors[name] as string | undefined}

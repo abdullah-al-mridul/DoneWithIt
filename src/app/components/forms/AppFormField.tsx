@@ -9,10 +9,12 @@ import ErrorMessage from "./ErrorMessage";
 interface Props<T extends Record<string, any>> extends TextInputProps {
   name: keyof T;
   icon?: ComponentProps<typeof MaterialCommunityIcons>["name"];
+  width?: import("react-native").DimensionValue;
 }
 
 const AppFormField = <T extends Record<string, any>>({
   name,
+  width,
   ...otherProps
 }: Props<T>) => {
   const { setFieldTouched, handleChange, errors, touched } =
@@ -23,6 +25,7 @@ const AppFormField = <T extends Record<string, any>>({
         onChangeText={handleChange(name as string)}
         onBlur={() => setFieldTouched(name as string)}
         {...otherProps}
+        width={width}
       />
       <ErrorMessage
         visible={touched[name] as boolean | undefined}
