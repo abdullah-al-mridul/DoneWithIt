@@ -1,7 +1,7 @@
 import { useFormikContext } from "formik";
 import { ComponentType } from "react";
 import { DimensionValue } from "react-native";
-import AppPicker from "../AppPicker";
+import AppPicker from "../Picker";
 import ErrorMessage from "./ErrorMessage";
 
 interface PickerItemType {

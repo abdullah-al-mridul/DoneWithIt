@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import Screen from "../components/Screen";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
-import AppFormPicker from "../components/forms/AppFormPicker";
+import AppFormPicker from "../components/forms/FormPicker";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),

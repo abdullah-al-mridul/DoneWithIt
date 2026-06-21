@@ -12,8 +12,8 @@ import {
 } from "react-native";
 
 import defaultStyles from "../config/styles";
-import AppText from "./AppText";
 import PickerItem from "./PickerItem";
+import AppText from "./Text";
 
 type ItemType = {
   label: string;

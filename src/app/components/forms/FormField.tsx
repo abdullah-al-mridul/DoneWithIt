@@ -3,7 +3,7 @@ import { useFormikContext } from "formik";
 import { ComponentProps } from "react";
 import { TextInputProps } from "react-native";
 
-import AppTextInput from "../AppTextInput";
+import AppTextInput from "../TextInput";
 import ErrorMessage from "./ErrorMessage";
 
 interface Props<T extends Record<string, any>> extends TextInputProps {

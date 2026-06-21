@@ -11,7 +11,7 @@ import ReanimatedSwipeable from "react-native-gesture-handler/ReanimatedSwipeabl
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
-import AppText from "./AppText";
+import AppText from "./Text";
 
 interface Props {
   title: string;

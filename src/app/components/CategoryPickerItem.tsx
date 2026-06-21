@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
-import AppText from "./AppText";
 import Icon from "./Icon";
+import AppText from "./Text";
 
 interface Props {
   onPress?: () => void;
