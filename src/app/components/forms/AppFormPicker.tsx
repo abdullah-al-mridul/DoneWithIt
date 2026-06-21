@@ -1,18 +1,25 @@
 import { useFormikContext } from "formik";
+import { ComponentType } from "react";
 import { DimensionValue } from "react-native";
 import AppPicker from "../AppPicker";
 import ErrorMessage from "./ErrorMessage";
 
-interface PickerItem {
+interface PickerItemType {
   label: string;
   value: any;
 }
 
+interface PickerItemProps {
+  label: string;
+  onPress?: () => void;
+}
+
 interface Props<T extends Record<string, any>> {
-  items: PickerItem[];
+  items: PickerItemType[];
   name: keyof T;
   placeholder?: string;
   width?: DimensionValue;
+  PickerItemComponent?: ComponentType<PickerItemProps>;
 }
 
 const AppFormPicker = <T extends Record<string, any>>({
@@ -20,6 +27,7 @@ const AppFormPicker = <T extends Record<string, any>>({
   name,
   placeholder,
   width,
+  PickerItemComponent,
 }: Props<T>) => {
   const { values, setFieldValue, touched, errors } = useFormikContext<T>();
   return (
@@ -30,6 +38,7 @@ const AppFormPicker = <T extends Record<string, any>>({
         placeholder={placeholder}
         selectedItem={values[name]}
         width={width}
+        PickerItemComponent={PickerItemComponent}
       />
       <ErrorMessage
         error={errors[name] as string | undefined}

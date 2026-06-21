@@ -1,5 +1,5 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import React, { useState } from "react";
+import React, { ComponentType, useState } from "react";
 import {
   Button,
   DimensionValue,
@@ -20,6 +20,11 @@ type ItemType = {
   value: any;
 };
 
+interface PickerItemProps {
+  label: string;
+  onPress?: () => void;
+}
+
 interface AppPickerProps extends TextInputProps {
   icon?: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
   items: ItemType[];
@@ -27,6 +32,7 @@ interface AppPickerProps extends TextInputProps {
   selectedItem?: ItemType | null;
   placeholder?: string;
   width?: DimensionValue;
+  PickerItemComponent?: ComponentType<PickerItemProps>;
 }
 
 const AppPicker = ({
@@ -36,6 +42,7 @@ const AppPicker = ({
   onSelectItem,
   selectedItem,
   width = "100%",
+  PickerItemComponent = PickerItem,
 }: AppPickerProps) => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -70,7 +77,7 @@ const AppPicker = ({
           data={items}
           keyExtractor={(item) => item.value.toString()}
           renderItem={({ item }) => (
-            <PickerItem
+            <PickerItemComponent
               label={item.label}
               onPress={() => {
                 setModalVisible(false);
