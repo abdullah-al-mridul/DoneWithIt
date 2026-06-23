@@ -1,7 +1,7 @@
 import * as ImagePicker from "expo-image-picker";
 import { useEffect, useState } from "react";
-import { Image } from "react-native";
 import AppButton from "./components/Button";
+import ImageInput from "./components/ImageInput";
 import Screen from "./components/Screen";
 const App = () => {
   const requestPermission = async () => {
@@ -26,18 +26,8 @@ const App = () => {
   };
   return (
     <Screen>
-      <AppButton title="Select Image" onPress={selectImage} />
-      {imageUri && (
-        <Image
-          source={{
-            uri: imageUri[0].uri,
-          }}
-          style={{
-            height: 200,
-            width: 200,
-          }}
-        />
-      )}
+      <AppButton title="Choose image" onPress={selectImage} />
+      <ImageInput imageUri={imageUri ? imageUri[0].uri : undefined} />
     </Screen>
   );
 };
