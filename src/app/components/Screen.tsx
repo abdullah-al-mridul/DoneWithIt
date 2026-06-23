@@ -6,7 +6,7 @@ const Screen = ({
   children,
   stylesExtend,
 }: {
-  children: ReactNode;
+  children?: ReactNode;
   stylesExtend?: ViewStyle;
 }) => {
   return (
