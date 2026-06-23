@@ -1,5 +1,6 @@
 import { ImagePickerAsset } from "expo-image-picker";
-import { StyleSheet, View } from "react-native";
+import { useRef } from "react";
+import { ScrollView, StyleSheet, View } from "react-native";
 import ImageInput from "./ImageInput";
 
 interface Props {
@@ -13,19 +14,33 @@ export default function ImageInputList({
   onRemoveImage,
   onAddImage,
 }: Props) {
+  const scrollView = useRef<ScrollView>(null);
+
   return (
-    <View style={styles.container}>
-      {imageUris.map((uri) => (
-        <View key={uri} style={styles.image}>
+    <View>
+      <ScrollView
+        ref={scrollView}
+        horizontal
+        onContentSizeChange={() =>
+          scrollView.current?.scrollToEnd({ animated: true })
+        }
+      >
+        <View style={styles.container}>
+          {imageUris.map((uri) => (
+            <View key={uri} style={styles.image}>
+              <ImageInput
+                imageUri={uri}
+                onChangeImage={() =>
+                  onRemoveImage ? onRemoveImage(uri) : null
+                }
+              />
+            </View>
+          ))}
           <ImageInput
-            imageUri={uri}
-            onChangeImage={() => (onRemoveImage ? onRemoveImage(uri) : null)}
+            onChangeImage={(uri) => (onAddImage ? onAddImage(uri) : null)}
           />
         </View>
-      ))}
-      <ImageInput
-        onChangeImage={(uri) => (onAddImage ? onAddImage(uri) : null)}
-      />
+      </ScrollView>
     </View>
   );
 }
