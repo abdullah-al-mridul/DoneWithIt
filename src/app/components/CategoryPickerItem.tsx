@@ -1,31 +1,44 @@
-import { StyleSheet, View } from "react-native";
-import Icon from "./Icon";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import AppText from "./Text";
+import colors from "../config/colors";
 
 interface Props {
+  label: string;
   onPress?: () => void;
-  item?: any;
 }
 
-const CategoryPickerItem = ({ onPress, item }: Props) => {
+const CategoryPickerItem = ({ label, onPress }: Props) => {
   return (
-    <View style={styles.container}>
-      <Icon backgroundColor={item.backgroundColor} size={80} name={item.icon} />
-      <AppText style={styles.label}>{item.label}</AppText>
-    </View>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
+      <View style={styles.iconContainer}>
+        <MaterialCommunityIcons
+          name={label.toLowerCase().replace(" ", "-") as any}
+          size={30}
+          color={colors.white}
+        />
+      </View>
+      <AppText style={styles.text}>{label}</AppText>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 30,
-    paddingVertical: 15,
     alignItems: "center",
-    marginHorizontal: "auto",
+    marginBottom: 20,
     width: "33%",
   },
-  label: {
-    marginTop: 5,
+  iconContainer: {
+    backgroundColor: colors.light,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 80,
+    width: 80,
+  },
+  text: {
+    marginTop: 10,
     textAlign: "center",
   },
 });

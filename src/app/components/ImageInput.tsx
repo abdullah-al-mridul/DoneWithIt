@@ -5,7 +5,7 @@ import { Alert, Image, Pressable, StyleSheet, View } from "react-native";
 import colors from "../config/colors";
 
 interface Props {
-  imageUri: string | undefined;
+  imageUri?: string | undefined;
   onChangeImage?: (asset: ImagePicker.ImagePickerAsset[] | undefined) => void;
 }
 

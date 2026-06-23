@@ -1,23 +1,26 @@
-import * as ImagePicker from "expo-image-picker";
-import { useEffect, useState } from "react";
-import ImageInput from "./components/ImageInput";
+import { ImagePickerAsset } from "expo-image-picker";
+import { useState } from "react";
+import ImageInputList from "./components/ImageInputList";
 import Screen from "./components/Screen";
 const App = () => {
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraPermissionsAsync();
-    if (!granted) alert("You need to enable permission to access images");
-  };
-  useEffect(() => {
-    requestPermission();
-  }, []);
+  const [imageUris, setImageUris] = useState<string[]>([]);
 
-  const [imageUri, setImageUri] = useState<ImagePicker.ImagePickerAsset[]>();
+  const handleAdd = (assets: ImagePickerAsset[] | undefined) => {
+    if (assets && assets.length > 0) {
+      setImageUris([...imageUris, assets[0].uri]);
+    }
+  };
+
+  const handleRemove = (uri: string) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+  };
 
   return (
     <Screen>
-      <ImageInput
-        imageUri={imageUri ? imageUri[0].uri : undefined}
-        onChangeImage={(uri) => setImageUri(uri)}
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={(uri) => handleRemove(uri)}
       />
     </Screen>
   );
