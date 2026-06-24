@@ -23,7 +23,7 @@ type ItemType = {
 interface PickerItemProps {
   label: string;
   onPress?: () => void;
-  item?: any;
+  item: any;
 }
 
 interface AppPickerProps extends TextInputProps {

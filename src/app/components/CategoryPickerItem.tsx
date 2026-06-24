@@ -1,19 +1,27 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import AppText from "./Text";
 import colors from "../config/colors";
+import AppText from "./Text";
 
 interface Props {
   label: string;
   onPress?: () => void;
+  item: any;
 }
 
-const CategoryPickerItem = ({ label, onPress }: Props) => {
+const CategoryPickerItem = ({ label, item, onPress }: Props) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <View style={styles.iconContainer}>
+      <View
+        style={[
+          styles.iconContainer,
+          {
+            backgroundColor: item.backgroundColor,
+          },
+        ]}
+      >
         <MaterialCommunityIcons
-          name={label.toLowerCase().replace(" ", "-") as any}
+          name={item.icon}
           size={30}
           color={colors.white}
         />
@@ -28,6 +36,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
     width: "33%",
+    paddingTop: 10,
   },
   iconContainer: {
     backgroundColor: colors.light,

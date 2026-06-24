@@ -12,6 +12,7 @@ interface PickerItemType {
 interface PickerItemProps {
   label: string;
   onPress?: () => void;
+  item: any;
 }
 
 interface Props<T extends Record<string, any>> {
