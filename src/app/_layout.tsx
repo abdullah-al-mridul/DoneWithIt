@@ -1,10 +1,17 @@
-import { Slot, ThemeProvider } from "expo-router";
+import { Stack, ThemeProvider } from "expo-router";
 import myTheme from "./navigation/navigationTheme";
 
 export default function RootLayout() {
   return (
     <ThemeProvider value={myTheme}>
-      <Slot />;
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name="(auth)"
+          options={{
+            animation: "slide_from_right",
+          }}
+        ></Stack.Screen>
+      </Stack>
     </ThemeProvider>
   );
 }

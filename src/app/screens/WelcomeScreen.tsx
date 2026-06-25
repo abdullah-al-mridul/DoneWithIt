@@ -25,6 +25,7 @@ const WelcomeScreen = () => {
           <Link href={"/register"} asChild>
             <AppButton title="Register" color="secondary" />
           </Link>
+          <Link href={"/listing"}>Home</Link>
         </View>
       </View>
     </View>

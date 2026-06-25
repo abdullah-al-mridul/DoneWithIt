@@ -1,5 +1,6 @@
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, Pressable, StyleSheet } from "react-native";
 
+import { useRouter } from "expo-router";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 import colors from "../config/colors";
@@ -20,17 +21,22 @@ const listings = [
 ];
 
 const ListingScreen = () => {
+  const router = useRouter();
   return (
     <Screen stylesExtend={styles.screen}>
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subTitle={`$${item.price}`}
-            image={item.image}
-          />
+          <Pressable
+            onPress={() => router.push(`/(app)/listing/${item.id}` as any)}
+          >
+            <Card
+              title={item.title}
+              subTitle={`$${item.price}`}
+              image={item.image}
+            />
+          </Pressable>
         )}
       />
     </Screen>

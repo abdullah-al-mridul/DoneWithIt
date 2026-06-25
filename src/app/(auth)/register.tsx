@@ -1,7 +1,7 @@
 import RegisterScreen from "../screens/RegisterScreen";
 
-const register = () => {
+const Register = () => {
   return <RegisterScreen />;
 };
 
-export default register;
+export default Register;
