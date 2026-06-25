@@ -1,5 +1,5 @@
 import { Stack, ThemeProvider } from "expo-router";
-import myTheme from "./navigation/navigationTheme";
+import myTheme from "../navigation/navigationTheme";
 
 export default function RootLayout() {
   return (

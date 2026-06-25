@@ -1,4 +1,4 @@
-import ListingScreen from "../../screens/ListingScreen";
+import ListingScreen from "../../../screens/ListingScreen";
 
 const Listing = () => {
   return <ListingScreen />;

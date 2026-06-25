@@ -1,4 +1,4 @@
-import ListingEditScreen from "../screens/ListingEditScreen";
+import ListingEditScreen from "../../screens/ListingEditScreen";
 
 const Edit = () => {
   return <ListingEditScreen />;

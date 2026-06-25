@@ -40,7 +40,7 @@ const AccountScreen = () => {
         <ListItem
           title="Abdullah Al Mridul"
           subTitle="rim89987@gmail.com"
-          image={require("../../../assets/jacket.jpg")}
+          image={require("../../assets/jacket.jpg")}
         />
       </View>
       <View style={styles.container}>

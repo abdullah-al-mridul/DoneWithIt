@@ -7,13 +7,13 @@ const WelcomeScreen = () => {
     <View style={styles.container}>
       <Image
         blurRadius={10}
-        source={require("../../../assets/background.jpg")}
+        source={require("../../assets/background.jpg")}
         style={styles.image}
       />
       <View style={styles.innerView}>
         <View>
           <Image
-            source={require("../../../assets/logo-red.png")}
+            source={require("../../assets/logo-red.png")}
             style={styles.logo}
           />
           <Text style={styles.text}>Sell What You Don't Need</Text>
