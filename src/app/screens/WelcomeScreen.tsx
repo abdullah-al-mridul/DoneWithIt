@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { Image, StatusBar, StyleSheet, Text, View } from "react-native";
 import AppButton from "../components/Button";
 
@@ -18,8 +19,12 @@ const WelcomeScreen = () => {
           <Text style={styles.text}>Sell What You Don't Need</Text>
         </View>
         <View style={styles.buttonContainer}>
-          <AppButton title="Login" />
-          <AppButton title="Register" color="secondary" />
+          <Link href={"/login"} asChild>
+            <AppButton title="Login" />
+          </Link>
+          <Link href={"/register"} asChild>
+            <AppButton title="Register" color="secondary" />
+          </Link>
         </View>
       </View>
     </View>
