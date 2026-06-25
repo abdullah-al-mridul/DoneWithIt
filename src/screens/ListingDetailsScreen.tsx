@@ -7,7 +7,7 @@ import colors from "../config/colors";
 const ListingDetailsScreen = () => {
   return (
     <Screen>
-      <View>
+      <View style={{ flex: 1 }}>
         <Image
           style={styles.image}
           source={require("../../assets/jacket.jpg")}
@@ -15,7 +15,7 @@ const ListingDetailsScreen = () => {
         <View style={styles.detailsContainer}>
           <AppText style={styles.title}>Red jacket for sale!</AppText>
           <AppText style={styles.subTitle}>$100</AppText>
-          <View style={styles.detailsContainer}>
+          <View style={styles.userContainer}>
             <ListItem
               image={require("../../assets/mosh.jpg")}
               title="Mosh Hamedani"
@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   userContainer: {
-    marginVertical: 40,
+    marginVertical: 20,
+    backgroundColor: colors.white,
   },
 });
 

@@ -2,6 +2,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ComponentProps } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
+import { useRouter } from "expo-router";
 import Icon from "../components/Icon";
 import ListItem from "../components/ListItem";
 import ListItemSeparetor from "../components/ListItemSeparetor";
@@ -14,6 +15,7 @@ type MenuItems = {
     name: ComponentProps<typeof MaterialCommunityIcons>["name"];
     backgroundColor: string;
   };
+  targetScreen?: string;
 };
 
 const menuItems: MenuItems[] = [
@@ -30,10 +32,12 @@ const menuItems: MenuItems[] = [
       name: "email",
       backgroundColor: colors.secondary,
     },
+    targetScreen: "messages",
   },
 ];
 
 const AccountScreen = () => {
+  const router = useRouter();
   return (
     <Screen stylesExtend={styles.screen}>
       <View style={styles.container}>
@@ -55,6 +59,9 @@ const AccountScreen = () => {
                   name={item.icon.name}
                   backgroundColor={item.icon.backgroundColor}
                 />
+              }
+              onPress={() =>
+                router.push(`/(app)/account/${item.targetScreen}` as any)
               }
             />
           )}

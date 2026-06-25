@@ -30,33 +30,41 @@ const ListItem = ({
   renderRightActions,
   IconComponent: ImageComponent,
 }: Props) => {
-  return (
-    <GestureHandlerRootView>
-      <ReanimatedSwipeable renderRightActions={renderRightActions}>
-        <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
-          <View style={styles.container}>
-            {ImageComponent}
-            {image && <Image source={image} style={styles.image} />}
-            <View style={styles.stylesDetailsContainer}>
-              <AppText numberOfLines={1} style={styles.title}>
-                {title}
-              </AppText>
-              {subTitle && (
-                <AppText numberOfLines={1} style={styles.subTitle}>
-                  {subTitle}
-                </AppText>
-              )}
-            </View>
-            <MaterialCommunityIcons
-              name="chevron-right"
-              size={20}
-              color={colors.medium}
-            />
-          </View>
-        </TouchableHighlight>
-      </ReanimatedSwipeable>
-    </GestureHandlerRootView>
+  const innerContent = (
+    <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+      <View style={styles.container}>
+        {ImageComponent}
+        {image && <Image source={image} style={styles.image} />}
+        <View style={styles.stylesDetailsContainer}>
+          <AppText numberOfLines={1} style={styles.title}>
+            {title}
+          </AppText>
+          {subTitle && (
+            <AppText numberOfLines={1} style={styles.subTitle}>
+              {subTitle}
+            </AppText>
+          )}
+        </View>
+        <MaterialCommunityIcons
+          name="chevron-right"
+          size={20}
+          color={colors.medium}
+        />
+      </View>
+    </TouchableHighlight>
   );
+
+  if (renderRightActions) {
+    return (
+      <GestureHandlerRootView>
+        <ReanimatedSwipeable renderRightActions={renderRightActions}>
+          {innerContent}
+        </ReanimatedSwipeable>
+      </GestureHandlerRootView>
+    );
+  }
+
+  return innerContent;
 };
 
 const styles = StyleSheet.create({

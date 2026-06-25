@@ -49,6 +49,7 @@ export default function AppLayout() {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
+          headerShown: false,
         }}
       />
     </Tabs>

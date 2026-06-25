@@ -7,7 +7,11 @@ const ListingLayout = () => {
 
       <Stack.Screen
         name="[id]"
-        options={{ title: "Listing Details", headerShown: false }}
+        options={{
+          title: "Listing Details",
+          headerShown: false,
+          presentation: "modal",
+        }}
       />
     </Stack>
   );
